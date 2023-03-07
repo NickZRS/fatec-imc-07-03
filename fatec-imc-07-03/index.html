@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de IMC</title>
+
+    <style>
+        body{
+            background-color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        form{
+            padding: 50px 15px 15px 15px;
+            background-color: rgb(141, 141, 141);
+            width: 500px;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button.btns{
+            margin-left: 15px;
+
+        }
+        h1#titulo{
+            color: rgb(0, 0, 0);
+        }
+        h5{
+            word-spacing: 170px;
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+        }
+        input{
+            margin-bottom: 50px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="titulo">Cálculo de IMC
+    </h1>
+    <form>
+        <!--Comentário-->
+        <h5>Peso: Altura:</h5>
+        <input type="text" id="peso">       <input type="text" id="alt"><br>
+        <button class="btns" id="btn1" type="button" onclick="imc()">Calcular IMC</button><br>
+        <input type="text" id="resp" readonly>
+        <h4 id="imc"></h4>
+    </form>
+
+    <script>
+        function imc(){
+            var peso, alt, resp, imc;
+
+            peso = parseFloat(document.getElementById("peso").value);
+            alt = parseFloat(document.getElementById("alt").value);
+
+            resp = peso / (alt*alt);
+
+            document.getElementById("resp").value = resp;
+
+        }
+
+    </script>
+</body>
+</html>
