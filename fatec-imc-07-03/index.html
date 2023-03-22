@@ -46,21 +46,40 @@
         <!--Comentário-->
         <h5>Peso: Altura:</h5>
         <input type="text" id="peso">       <input type="text" id="alt"><br>
-        <button class="btns" id="btn1" type="button" onclick="imc()">Calcular IMC</button><br>
+        <button class="btns" id="btn1" type="button" onclick="calculoimc()">Calcular IMC</button><br>
+        <input type="text" id="imc"readonly>
         <input type="text" id="resp" readonly>
-        <h4 id="imc"></h4>
+        
     </form>
 
     <script>
-        function imc(){
+        function calculoimc(){
             var peso, alt, resp, imc;
 
             peso = parseFloat(document.getElementById("peso").value);
             alt = parseFloat(document.getElementById("alt").value);
 
-            resp = peso / (alt*alt);
+            imc = peso / (alt*alt);
 
-            document.getElementById("resp").value = resp;
+            if(imc < 18.5){
+                document.getElementById("imc").value = imc.toFixed(2);
+                document.getElementById("resp").value = "Magreza";
+            }else if(imc >= 18.5 &&  imc <= 24.9){
+                document.getElementById("imc").value = imc.toFixed(2);
+                document.getElementById("resp").value = "Normal";
+            }else if(imc >= 25 &&  imc <= 29.9){
+                document.getElementById("imc").value = imc.toFixed(2);
+                document.getElementById("resp").value = "Sobrepeso";
+            }else if(imc >= 30 &&  imc <= 34.9){
+                document.getElementById("imc").value = imc.toFixed(2);
+                document.getElementById("resp").value = "Obesidade Grau I";
+            }else if(imc >= 35 &&  imc <= 39.9){
+                document.getElementById("imc").value = imc.toFixed(2);
+                document.getElementById("resp").value = "Obesidade Grau II";
+            }else{
+                document.getElementById("imc").value = imc.toFixed(2);
+                document.getElementById("resp").value = "Obesidade Grau III";
+            }
 
         }
 
